@@ -135,15 +135,15 @@ if selected == "Upload & Extract":
          # DISPLAYING THE UPLOADED CARD
         col1,col2 = st.columns(2)
         with col1:
-            st.markdown("### You have uploaded the card")
+            st.markdown("### :white[You have uploaded the card]")
             st.image(uploaded_card)
         with col2:
-            with st.spinner("Please wait processing image..."):
+            with st.spinner(":green[Please wait processing image...]"):
                 st.set_option('deprecation.showPyplotGlobalUse', False)
                 saved_img = os.getcwd()+ "\\" + "uploaded_cards"+ "\\"+ uploaded_card.name
                 image = cv2.imread(saved_img)
                 res = reader.readtext(saved_img)
-                st.markdown("### Image Processed and Data Extracted")
+                st.markdown("### :white[Image Processed and Data Extracted]")
                 st.pyplot(image_preview(image,res))  
                 
          #easy OCR
@@ -274,23 +274,23 @@ if selected == "Modify":
             business_cards = {}
             for row in result:
                 business_cards[row[0]] = row[0]
-            selected_card = st.selectbox("Select a card holder name to update", list(business_cards.keys()))
-            st.markdown("#### Update or modify any data below")
+            selected_card = st.selectbox(":red[Select a card holder name to update]", list(business_cards.keys()))
+            st.markdown("#### :green[Update or modify any data below]")
             mycursor.execute("select company_name,card_holder,designation,mobile_number,email,website,area,city,state,pin_code from card_data WHERE card_holder=%s",
                             (selected_card,))
             result = mycursor.fetchone()
 
             # DISPLAYING ALL THE INFORMATIONS
-            company_name = st.text_input("Company_Name", result[0])
-            card_holder = st.text_input("Card_Holder", result[1])
-            designation = st.text_input("Designation", result[2])
-            mobile_number = st.text_input("Mobile_Number", result[3])
-            email = st.text_input("Email", result[4])
-            website = st.text_input("Website", result[5])
-            area = st.text_input("Area", result[6])
-            city = st.text_input("City", result[7])
-            state = st.text_input("State", result[8])
-            pin_code = st.text_input("Pin_Code", result[9])
+            company_name = st.text_input(":green[Company_Name]", result[0])
+            card_holder = st.text_input(":green[Card_Holder]", result[1])
+            designation = st.text_input(":green[Designation]", result[2])
+            mobile_number = st.text_input(":green[Mobile_Number]", result[3])
+            email = st.text_input(":green[Email]", result[4])
+            website = st.text_input(":green[Website]", result[5])
+            area = st.text_input(":green[Area]", result[6])
+            city = st.text_input(":green[City]", result[7])
+            state = st.text_input(":green[State]", result[8])
+            pin_code = st.text_input(":green[Pin_Code]", result[9])
 
             if st.button("Commit changes to DB"):
                 # Update the information for the selected business card in the database
