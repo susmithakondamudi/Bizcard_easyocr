@@ -1,4 +1,4 @@
- # Bizcard_easyocr: which extracts data from business cards using Optical Character Recognition (OCR) and allows users to interact with the extracted data.
+ # BizcardX: which extracts data from business cards using Optical Character Recognition (OCR) and allows users to interact with the extracted data.
 
 # Overview:
 
